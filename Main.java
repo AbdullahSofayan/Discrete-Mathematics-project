@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 
@@ -19,9 +18,19 @@ public static long gcd(long a, long b) {
     }
     return a;
 }
+//Helper function to check if a number is prime
+public static boolean isPrime(long n) {
+ if (n <= 1) return false;
+ for (long i = 2; i <= Math.sqrt(n); i++) {
+     if (n % i == 0) return false;
+ }
+ return true;
+}
 
 // Pollard's Rho algorithm to find a non-trivial factor of n
 public static long pollardsRho(long n) {    
+	if(isPrime(n))
+		return 1;
     // Initialize x and y, d
     long x = 2;
     long y = 2;
@@ -48,24 +57,26 @@ public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
     long input;
     do{
+    System.out.println();
     System.out.println("******************* Integer factorization program *******************");
     System.out.println("Enter Number to factorize \nEnter 0 to exit");
     System.out.print("Choice: ");
     input = in.nextLong(); 
+    
     if (input==0){
     System.out.println("Program shut down");
     break;
     }
-    System.out.println("Factorization of " + input + ":");
+   
 
     // Try to find a factor using Pollard's Rho
     long factor = pollardsRho(input);
     if (factor == 1) {
         System.out.println("No factor found.");
     } else {
+    	 System.out.println("Factorization of " + input + ":");
         System.out.println("A non-trivial factor: " + factor);
         System.out.println("Other factor: " + (input / factor));
-        System.out.println();
     }
     } while(true);
 }
