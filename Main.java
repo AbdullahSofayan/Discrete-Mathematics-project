@@ -1,4 +1,7 @@
 
+import java.util.Scanner;
+
+
 
 class Main{
 
@@ -18,7 +21,7 @@ public static long gcd(long a, long b) {
 }
 
 // Pollard's Rho algorithm to find a non-trivial factor of n
-public static long pollardsRho(long n) {
+public static long pollardsRho(long n) {    
     // Initialize x and y
     long x = 2;
     long y = 2;
@@ -42,19 +45,29 @@ public static long pollardsRho(long n) {
 }
 
 public static void main(String[] args) {
-    // Example number to factor
-    long n = 8051;
-
-    System.out.println("Factorization of " + n + ":");
+    Scanner in = new Scanner(System.in);
+    long input;
+    do{
+    System.out.println("******************* Integer factorization program *******************");
+    System.out.println("Enter Number to factorize \nEnter 0 to exit");
+    System.out.print("Choice: ");
+    input = in.nextLong(); 
+    if (input==0){
+    System.out.println("Program shut down");
+    break;
+    }
+    System.out.println("Factorization of " + input + ":");
 
     // Try to find a factor using Pollard's Rho
-    long factor = pollardsRho(n);
+    long factor = pollardsRho(input);
     if (factor == 1) {
         System.out.println("No factor found.");
     } else {
         System.out.println("A non-trivial factor: " + factor);
-        System.out.println("Other factor: " + (n / factor));
+        System.out.println("Other factor: " + (input / factor));
+        System.out.println();
     }
+    } while(true);
 }
 
    
