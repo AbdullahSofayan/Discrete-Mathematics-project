@@ -22,7 +22,7 @@ public static long gcd(long a, long b) {
 
 // Pollard's Rho algorithm to find a non-trivial factor of n
 public static long pollardsRho(long n) {    
-    // Initialize x and y
+    // Initialize x and y, d
     long x = 2;
     long y = 2;
     long d = 1;
