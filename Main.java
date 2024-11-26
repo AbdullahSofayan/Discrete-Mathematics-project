@@ -65,13 +65,13 @@ class Main {
             // Print program menu
             System.out.println();
             System.out.println("******************* Integer factorization program *******************");
-            System.out.println("1-Enter Number to factorize \nEnter 0 to exit");
+            System.out.println("Enter Number to factorize \nEnter 0 to exit");
             System.out.print("Number: ");
             input = in.nextLong(); // Read the user's Number
 
             // Exit the program if input is 0
             if (input == 0) {
-                System.out.println("Program Ended");
+                System.out.println("\nProgram Ended");
                 break;
             }
 
@@ -79,10 +79,10 @@ class Main {
             long factor = pollardsRho(input);
             if (factor == 1) {
                 // If no factor is found, print a message
-                System.out.println("No factor found.");
+                System.out.println("\nNo factor found.");
             } else {
                 // Print the factorization result
-                System.out.println("Factorization of " + input + ":");
+                System.out.println("\nFactorization of " + input + ":");
                 System.out.println("A non-trivial factor: " + factor);
                 System.out.println("Other factor: " + (input / factor));
             }
